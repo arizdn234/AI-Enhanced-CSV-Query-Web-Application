@@ -51,12 +51,44 @@ This web application enables users to interact with CSV data using AI models. Us
 ## Running the Application
 
 1. Start the server:
-
+   
    ```bash
    go run main.go
    ```
 
 2. Access the application in your browser at [http://localhost:8080](http://localhost:8080).
+
+## Option to Run the Application with Air (live-reloading)
+If you want to use Air to automatically reload the server when code changes, follow these steps:
+
+**Install Air (if not installed yet):**
+
+```bash
+go install github.com/cosmtrek/air@latest
+```
+Make sure the `$GOPATH/bin` directory is in your  `PATH`. Add this to your `.bashrc` or `.zshrc` if necessary:
+
+```bash
+export PATH=$PATH:$(go env GOPATH)/bin
+```
+Generate the Air configuration file by running this command in the root directory of your project:
+
+```bash
+air init
+```
+This will create a `.air.toml` file, which you can modify if needed.
+
+Run the application with Air using the following command:
+
+```bash
+air
+```
+
+Air will watch for changes in your code and automatically restart the server when changes are detected.
+
+You can still access the application via your browser at:
+
+`http://localhost:8080`
 
 ## Usage
 
@@ -76,8 +108,8 @@ The application uses predefined user credentials stored in the `allowedUsers` ma
 
 ```go
 var allowedUsers = map[string]string{
-    "user1": "password1",
-    "user2": "password2",
+    "user1": "pass1",
+    "user2": "pass2",
 }
 ```
 
@@ -87,10 +119,9 @@ These can be modified or expanded as needed.
 
 Ensure the following HTML files are placed in the `templates` directory:
 
-- **`welcome.html`** - Landing page.
 - **`login.html`** - Login form for user authentication.
 - **`verify.html`** - Verification question for access.
-- **`home.html`** - Main page showing CSV data and allowing user interaction with AI.
+- **`home.html`** - Main page allowing user interaction with AI.
 
 ## AI Model Details
 
@@ -120,7 +151,7 @@ Ensure the following HTML files are placed in the `templates` directory:
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the `MIT License`.
 
 ## Acknowledgments
 
