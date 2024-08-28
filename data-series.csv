@@ -1,0 +1,30 @@
+Date,Time,Appliance,Energy_Consumption,Room,Status,Temperature,Weather_Condition,Number_of_People,Activity,Season,Energy_Rating,Usage_Duration,Appliance_Wattage
+2024-01-01,00:00,Refrigerator,1.2,Kitchen,On,5,Clear,2,Sleeping,Winter,A,24,150
+2024-01-01,01:00,Refrigerator,1.2,Kitchen,On,4,Clear,2,Sleeping,Winter,A,24,150
+2024-01-01,02:00,Refrigerator,1.2,Kitchen,On,4,Clear,2,Sleeping,Winter,A,24,150
+2024-01-01,03:00,Refrigerator,1.2,Kitchen,On,3,Clear,2,Sleeping,Winter,A,24,150
+2024-01-01,04:00,Refrigerator,1.2,Kitchen,On,3,Clear,2,Sleeping,Winter,A,24,150
+2024-01-01,05:00,Refrigerator,1.2,Kitchen,On,3,Clear,2,Sleeping,Winter,A,24,150
+2024-01-01,06:00,Refrigerator,1.2,Kitchen,On,2,Clear,2,Waking Up,Winter,A,24,150
+2024-01-01,07:00,Refrigerator,1.2,Kitchen,On,2,Clear,4,Breakfast,Winter,A,24,150
+2024-01-01,08:00,Refrigerator,1.2,Kitchen,On,3,Cloudy,4,Breakfast,Winter,A,24,150
+2024-01-01,08:00,TV,0.8,Living Room,Off,3,Cloudy,4,Breakfast,Winter,B,3,100
+2024-01-01,09:00,TV,0.8,Living Room,On,4,Cloudy,4,Watching TV,Winter,B,4,100
+2024-01-01,10:00,TV,0.8,Living Room,On,5,Cloudy,4,Watching TV,Winter,B,4,100
+2024-01-01,11:00,TV,0.8,Living Room,On,6,Cloudy,4,Watching TV,Winter,B,4,100
+2024-01-01,12:00,TV,0.8,Living Room,Off,7,Sunny,4,Lunch,Winter,B,3,100
+2024-01-01,13:00,TV,0.8,Living Room,On,8,Sunny,4,Watching TV,Winter,B,4,100
+2024-01-01,14:00,TV,0.8,Living Room,On,8,Sunny,4,Resting,Winter,B,4,100
+2024-01-01,15:00,TV,0.8,Living Room,Off,6,Sunny,4,Out,Winter,B,3,100
+2024-01-01,16:00,TV,0.8,Living Room,On,5,Sunny,4,Relaxing,Winter,B,4,100
+2024-01-01,17:00,Heater,1.5,Bedroom,On,4,Cloudy,4,Dinner,Winter,C,5,2000
+2024-01-01,18:00,Heater,1.5,Bedroom,On,4,Cloudy,4,Dinner,Winter,C,5,2000
+2024-01-01,19:00,Heater,1.5,Bedroom,On,3,Cloudy,4,Relaxing,Winter,C,4,2000
+2024-01-01,20:00,Heater,1.5,Bedroom,Off,2,Clear,4,Preparing for Bed,Winter,C,2,2000
+2024-01-01,21:00,Heater,1.5,Bedroom,Off,2,Clear,4,Watching TV,Winter,C,2,2000
+2024-01-01,22:00,Heater,1.5,Bedroom,Off,2,Clear,4,Watching TV,Winter,C,2,2000
+2024-01-01,23:00,Heater,1.5,Bedroom,Off,2,Clear,4,Preparing for Bed,Winter,C,2,2000
+2024-01-01,06:00,Light,0.1,Kitchen,On,2,Clear,2,Waking Up,Winter,D,2,60
+2024-01-01,07:00,Light,0.1,Kitchen,Off,2,Clear,4,Breakfast,Winter,D,1,60
+2024-01-01,18:00,Light,0.1,Kitchen,On,4,Cloudy,4,Dinner,Winter,D,2,60
+2024-01-01,23:00,Light,0.1,Kitchen,Off,2,Clear,4,Preparing for Bed,Winter,D,1,60

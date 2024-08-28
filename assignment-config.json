@@ -1,0 +1,16 @@
+{
+	"name": "final-project-golang-ai",
+	"course": "Artificial Intelligence menggunakan Golang",
+	"title": "Final Project - Artificial Intelligence menggunakan Golang",
+	"order": 99,
+	"topics": [
+		"golang",
+		"artificial intelligence"
+	],
+	"image": "golang-basic",
+	"command": "go test",
+	"totalTestCase": 4,
+	"metadata": {
+		"type": "final-project"
+	}
+}
