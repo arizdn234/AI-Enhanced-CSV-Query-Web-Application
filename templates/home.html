@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .logout-btn {
+            margin-bottom: 20px;
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .logout-btn:hover {
+            background-color: #c9302c;
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .card p {
+            margin: 10px 0;
+        }
+
+        .response-section {
+            margin-top: 20px;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .card-recommend {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .recommendation-input,
+        .recommendation-output {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 10px 0;
+            white-space: pre-line;
+        }
+
+        .recommendation-input {
+            border-left: 3px solid #007BFF;
+        }
+
+        .recommendation-output ul {
+            list-style-type: disc;
+            margin: 10px 0 10px 20px;
+        }
+
+        .recommendation-output ol {
+            list-style-type: decimal;
+            margin: 10px 0 10px 20px;
+        }
+
+        .recommendation-output h1,
+        .recommendation-output h2,
+        .recommendation-output h3,
+        .recommendation-output h4,
+        .recommendation-output h5,
+        .recommendation-output h6 {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="logout-btn" onclick="logout()">Logout</button>
+        <h1>Home</h1>
+        <div id="csv-info">
+            <h2>CSV Information</h2>
+            <p><strong>Columns:</strong> Date, Time, Appliance, Energy_Consumption, Room, Status, Temperature,
+                Weather_Condition, Number_of_People,</p>
+            <p>Activity, Season, Energy_Rating, Usage_Duration, Appliance_Wattage</p>
+            <p><strong>Example rows:</strong></p>
+            <ul>
+                <li>2024-01-01, 00:00, Refrigerator, 1.2, Kitchen, On, 5, Clear, 2, Sleeping, Winter, A, 24, 150</li>
+                <li>2024-01-01, 09:00, TV, 0.8, Living Room, On, 4, Cloudy, 4, Watching TV, Winter, B, 4, 100</li>
+                <li>2024-01-01, 18:00, Light, 0.1, Kitchen, On, 4, Cloudy, 4, Dinner, Winter, D, 2, 60</li>
+            </ul>
+        </div>
+        <form id="question-form">
+            <label for="question">Ask a question:</label>
+            <input type="text" id="question" name="question" required>
+            <input type="submit" value="Submit">
+        </form>
+        <div class="response-section" id="response-section">
+            <!-- AI-generated responses will be added here -->
+        </div>
+        <hr>
+        <h2>Energy Saving Recommendations</h2>
+        <form id="recommend-form">
+            <label for="text">Describe your situation:</label>
+            <input type="text" id="text" name="text" required>
+            <input type="submit" value="Get Recommendations">
+        </form>
+        <div id="recommendations-list">
+            <!-- Recommendations will be dynamically added here -->
+        </div>
+    </div>
+    <script>
+        document.getElementById('question-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const question = document.getElementById('question').value;
+
+            fetch('/ask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ question })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const responseSection = document.getElementById('response-section');
+
+                    const card = document.createElement('div');
+                    card.className = 'card';
+
+                    const answerHeading = document.createElement('h3');
+                    answerHeading.textContent = 'Answer';
+                    card.appendChild(answerHeading);
+
+                    const answerPara = document.createElement('p');
+                    const friendly_answer = `Answer ${data.answer}\t ,Aggregator ${data.aggregator}`
+                    answerPara.textContent = friendly_answer;
+                    card.appendChild(answerPara);
+
+                    responseSection.appendChild(card);
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        document.getElementById('recommend-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const text = document.getElementById('text').value;
+
+            fetch('/recommend', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ text })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const recommendationsList = document.getElementById('recommendations-list');
+
+                    const recommendationDiv = document.createElement('div');
+                    recommendationDiv.classList.add('card');
+
+                    const inputPara = document.createElement('p');
+                    inputPara.classList.add('recommendation-input');
+                    inputPara.innerHTML = `<strong>Input:</strong> ${data.input}`;
+                    recommendationDiv.appendChild(inputPara);
+
+                    const recommendationPara = document.createElement('div');
+                    recommendationPara.classList.add('recommendation-output');
+                    const recommendationText = data.recommendation.Parts.join(" ");
+                    recommendationPara.innerHTML = convertMarkdownToHTML(recommendationText);
+                    recommendationDiv.appendChild(recommendationPara);
+
+                    recommendationsList.appendChild(recommendationDiv);
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        function convertMarkdownToHTML(markdown) {
+            const rules = [
+                { regex: /###### (.*$)/gim, replacement: '<h6>$1</h6>' },
+                { regex: /##### (.*$)/gim, replacement: '<h5>$1</h5>' },
+                { regex: /#### (.*$)/gim, replacement: '<h4>$1</h4>' },
+                { regex: /### (.*$)/gim, replacement: '<h3>$1</h3>' },
+                { regex: /## (.*$)/gim, replacement: '<h2>$1</h2>' },
+                { regex: /# (.*$)/gim, replacement: '<h1>$1</h1>' },
+                { regex: /\*\*(.*)\*\*/gim, replacement: '<strong>$1</strong>' },
+                { regex: /\*(.*)\*/gim, replacement: '<em>$1</em>' },
+                { regex: /\n$/gim, replacement: '<br />' },
+                { regex: /^\> (.*$)/gim, replacement: '<blockquote>$1</blockquote>' },
+                { regex: /\n\*(.*)/gim, replacement: '<ul>\n<li>$1</li>\n</ul>' },
+                { regex: /\n[0-9]+\.(.*)/gim, replacement: '<ol>\n<li>$1</li>\n</ol>' },
+            ];
+            let html = markdown;
+            rules.forEach(rule => {
+                html = html.replace(rule.regex, rule.replacement);
+            });
+            return html.trim();
+        }
+
+        function logout() {
+            window.location.href = '/logout';
+        }
+    </script>
+</body>
+
+</html>
