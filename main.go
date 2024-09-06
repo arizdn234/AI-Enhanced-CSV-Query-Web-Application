@@ -55,10 +55,10 @@ type User struct {
 	Password string
 }
 
+// user doc
 var allowedUsers = map[string]string{
-	"user1": "password1",
-	"user2": "password2",
-	// tambahkan pengguna lain sesuai kebutuhan
+	"user1": "pass1",
+	"user2": "pass2",
 }
 
 type VerificationQuestion struct {
@@ -217,10 +217,11 @@ func main() {
 
 	rand.Seed(time.Now().UnixNano())
 
+	// http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
 	r.LoadHTMLGlob("templates/*")
-	// r.Static("/static", "./static")
+	r.Static("/static", "./static")
 
 	store := cookie.NewStore([]byte("secret"))
 	store.Options(sessions.Options{

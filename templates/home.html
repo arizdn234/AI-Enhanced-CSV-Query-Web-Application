@@ -5,176 +5,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-        }
+    <link rel="stylesheet" href="/static/css/styles.css">
 
-        .container {
-            width: 90%;
-            max-width: 800px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        .logout-btn {
-            margin-bottom: 20px;
-            background-color: #d9534f;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .logout-btn:hover {
-            background-color: #c9302c;
-        }
-
-        .card {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .card h3 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .card p {
-            margin: 10px 0;
-        }
-
-        .response-section {
-            margin-top: 20px;
-        }
-
-        .tooltip {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            color: blue;
-            text-decoration: underline;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 200px;
-            background-color: #555;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -100px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .card-recommend {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .recommendation-input,
-        .recommendation-output {
-            font-family: 'Arial', sans-serif;
-            background-color: #f9f9f9;
-            padding: 10px;
-            margin: 10px 0;
-            white-space: pre-line;
-        }
-
-        .recommendation-input {
-            border-left: 3px solid #007BFF;
-        }
-
-        .recommendation-output ul {
-            list-style-type: disc;
-            margin: 10px 0 10px 20px;
-        }
-
-        .recommendation-output ol {
-            list-style-type: decimal;
-            margin: 10px 0 10px 20px;
-        }
-
-        .recommendation-output h1,
-        .recommendation-output h2,
-        .recommendation-output h3,
-        .recommendation-output h4,
-        .recommendation-output h5,
-        .recommendation-output h6 {
-            margin: 10px 0;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
 <body>
-    <div class="container">
-        <button class="logout-btn" onclick="logout()">Logout</button>
-        <h1>Home</h1>
-        <div id="csv-info">
-            <h2>CSV Information</h2>
+    <div class="home-container">
+        <!-- Tombol Logout dan Tema -->
+        <div class="header-actions">
+            <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            <button id="theme-toggle" class="btn secondary-button" onclick="toggleTheme()"><i class="fas fa-adjust"></i>
+                Toggle Theme</button>
+        </div>
+
+        <!-- Heading Utama dengan Ikon -->
+        <h1><i class="fas fa-home"></i> Home</h1>
+
+        <!-- Informasi CSV dengan Ikon -->
+        <section id="csv-info" class="info-section">
+            <h2><i class="fas fa-file-csv"></i> CSV Information</h2>
             <p><strong>Columns:</strong> Date, Time, Appliance, Energy_Consumption, Room, Status, Temperature,
-                Weather_Condition, Number_of_People,</p>
-            <p>Activity, Season, Energy_Rating, Usage_Duration, Appliance_Wattage</p>
+                Weather_Condition, Number_of_People, Activity, Season, Energy_Rating, Usage_Duration, Appliance_Wattage
+            </p>
             <p><strong>Example rows:</strong></p>
-            <ul>
-                <li>2024-01-01, 00:00, Refrigerator, 1.2, Kitchen, On, 5, Clear, 2, Sleeping, Winter, A, 24, 150</li>
-                <li>2024-01-01, 09:00, TV, 0.8, Living Room, On, 4, Cloudy, 4, Watching TV, Winter, B, 4, 100</li>
-                <li>2024-01-01, 18:00, Light, 0.1, Kitchen, On, 4, Cloudy, 4, Dinner, Winter, D, 2, 60</li>
-            </ul>
+            <div class="table-container">
+                <table class="transparent-table">
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-calendar-day"></i> Date</th>
+                            <th>Time</th>
+                            <th>Appliance</th>
+                            <th>Energy Consumption</th>
+                            <th>Room</th>
+                            <th>Status</th>
+                            <th>Temperature</th>
+                            <th>Weather Condition</th>
+                            <th>Number of People</th>
+                            <th>Activity</th>
+                            <th>Season</th>
+                            <th>Energy Rating</th>
+                            <th>Usage Duration</th>
+                            <th>Appliance Wattage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-01-01</td>
+                            <td>00:00</td>
+                            <td><i class="fas fa-temperature-low"></i> Refrigerator</td>
+                            <td>1.2</td>
+                            <td>Kitchen</td>
+                            <td>On</td>
+                            <td>5</td>
+                            <td>Clear</td>
+                            <td>2</td>
+                            <td>Sleeping</td>
+                            <td>Winter</td>
+                            <td>A</td>
+                            <td>24</td>
+                            <td>150</td>
+                        </tr>
+                        <tr>
+                            <td>2024-01-01</td>
+                            <td>09:00</td>
+                            <td><i class="fas fa-tv"></i> TV</td>
+                            <td>0.8</td>
+                            <td>Living Room</td>
+                            <td>On</td>
+                            <td>4</td>
+                            <td>Cloudy</td>
+                            <td>4</td>
+                            <td>Watching TV</td>
+                            <td>Winter</td>
+                            <td>B</td>
+                            <td>4</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>2024-01-01</td>
+                            <td>18:00</td>
+                            <td><i class="fas fa-lightbulb"></i> Light</td>
+                            <td>0.1</td>
+                            <td>Kitchen</td>
+                            <td>On</td>
+                            <td>4</td>
+                            <td>Cloudy</td>
+                            <td>4</td>
+                            <td>Dinner</td>
+                            <td>Winter</td>
+                            <td>D</td>
+                            <td>2</td>
+                            <td>60</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Gambar Dummy untuk Ilustrasi -->
+        <div class="image-placeholder">
+            <img style="text-align: center; margin-top: 1em;" src="https://picsum.photos/700/200" alt="Sample Image" />
         </div>
-        <form id="question-form">
-            <label for="question">Ask a question:</label>
-            <input type="text" id="question" name="question" required>
-            <input type="submit" value="Submit">
-        </form>
-        <div class="response-section" id="response-section">
-            <!-- AI-generated responses will be added here -->
-        </div>
+
+        <!-- Formulir Pertanyaan -->
+        <section style="margin-top: 3em;" id="question-form-section">
+            <form id="question-form">
+                <label for="question"><i class="fas fa-question-circle"></i> Ask a question:</label>
+                <input type="text" id="question" name="question" placeholder="Enter your question..." required>
+                <input type="submit" value="Submit">
+            </form>
+            <div class="response-section" id="response-section">
+                <!-- AI-generated responses will be added here -->
+            </div>
+        </section>
+
         <hr>
-        <h2>Energy Saving Recommendations</h2>
-        <form id="recommend-form">
-            <label for="text">Describe your situation:</label>
-            <input type="text" id="text" name="text" required>
-            <input type="submit" value="Get Recommendations">
-        </form>
-        <div id="recommendations-list">
-            <!-- Recommendations will be dynamically added here -->
-        </div>
+
+        <!-- Rekomendasi Penghematan Energi dengan Ikon -->
+        <section id="recommendation-section">
+            <h2><i class="fas fa-lightbulb"></i> Energy Saving Recommendations</h2>
+            <form id="recommend-form">
+                <label for="text"><i class="fas fa-comment-dots"></i> Describe your situation:</label>
+                <input type="text" id="text" name="text" placeholder="Describe your situation..." required>
+                <input type="submit" value="Get Recommendations">
+            </form>
+            <div id="recommendations-list">
+                <!-- Recommendations will be dynamically added here -->
+            </div>
+        </section>
     </div>
+
     <script>
         document.getElementById('question-form').addEventListener('submit', function (event) {
             event.preventDefault();
@@ -268,6 +229,8 @@
             window.location.href = '/logout';
         }
     </script>
+
+    <script src="/static/js/script.js"></script>
 </body>
 
 </html>

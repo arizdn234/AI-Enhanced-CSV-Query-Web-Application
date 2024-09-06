@@ -1,0 +1,355 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Nunito', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg-color: #f0f2f5;
+    --text-color: #333;
+    --heading-color: #39c5b2;
+    --secondary-text-color: #777;
+    --container-bg-color: #ffffff;
+    --button-bg-color: #42e7d1;
+    --button-hover-bg-color: #3dceba;
+    --secondary-button-bg-color: #72a7d6;
+    --secondary-button-hover-bg-color: #41698b;
+    --error: #ff7272;
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Tema Gelap */
+.dark-theme {
+    --bg-color: #1a1a1a;
+    --text-color: #eaeaea;
+    --heading-color: #39c5b2;
+    --secondary-text-color: #aaaaaa;
+    --container-bg-color: #2e2e2e;
+    --button-bg-color: #39c5b2;
+    --button-hover-bg-color: #33ac9e;
+    --secondary-button-bg-color: #2b3d52;
+    --secondary-button-hover-bg-color: #33495f;
+    --error: #ff7272;
+    --box-shadow-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.welcome-container {
+    max-width: 400px;
+    width: 100%;
+    padding: 30px;
+    background-color: var(--container-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--box-shadow-color);
+    text-align: center;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.container {
+    max-width: 400px;
+    width: 100%;
+    padding: 30px;
+    background-color: var(--container-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--box-shadow-color);
+    text-align: center;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+h1 {
+    color: var(--text-color);
+    font-size: 24px;
+    margin-bottom: 15px;
+    transition: color 0.5s ease;
+}
+
+h2 {
+    color: var(--heading-color);
+    font-size: 18px;
+    margin-bottom: 15px;
+    transition: color 0.5s ease;
+}
+
+p {
+    color: var(--secondary-text-color);
+    font-size: 14px;
+    margin-bottom: 20px;
+    transition: color 0.5s ease;
+}
+
+.text-white {
+    color: var(--bg-color);
+}
+
+.features {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.features h3 {
+    color: var(--text-color);
+    font-size: 16px;
+    margin-bottom: 10px;
+    transition: color 0.5s ease;
+}
+
+.features ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.features li {
+    color: var(--secondary-text-color);
+    margin-bottom: 8px;
+    transition: color 0.5s ease;
+}
+
+.image-section {
+    margin: 20px 0;
+}
+
+.illustration {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    transition: filter 0.5s ease;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 10px;
+    text-align: center;
+    background-color: var(--button-bg-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.secondary-button {
+    background-color: var(--secondary-button-bg-color);
+    transition: background-color 0.3s ease;
+}
+
+a:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+.secondary-button:hover {
+    background-color: var(--secondary-button-hover-bg-color);
+}
+
+/* login */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    text-align: start;
+    color: var(--text-color);
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--bg-color);
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--heading-color);
+    color: var(--bg-color);
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+.error {
+    color: var(--error);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* home */
+.home-container {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    box-shadow: var(--box-shadow-color);
+    margin-top: 20px;
+}
+
+.logout-btn {
+    margin-bottom: 20px;
+    background-color: var(--heading-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-color: var(--error);
+}
+
+.card {
+    background-color: var(--container-bg-color);
+    border: 1px solid var(--secondary-text-color);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--box-shadow-color);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+.card p {
+    margin: 10px 0;
+}
+
+.response-section {
+    margin-top: 20px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: var(--heading-color);
+    text-decoration: underline;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.card-recommend {
+    border: 1px solid var(--container-bg-color);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recommendation-input,
+.recommendation-output {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--container-bg-color);
+    padding: 10px;
+    margin: 10px 0;
+    white-space: pre-line;
+}
+
+.recommendation-input {
+    border-left: 3px solid var(--button-bg-color);
+}
+
+.recommendation-output ul {
+    list-style-type: disc;
+    margin: 10px 0 10px 20px;
+}
+
+.recommendation-output ol {
+    list-style-type: decimal;
+    margin: 10px 0 10px 20px;
+}
+
+.recommendation-output h1,
+.recommendation-output h2,
+.recommendation-output h3,
+.recommendation-output h4,
+.recommendation-output h5,
+.recommendation-output h6 {
+    margin: 10px 0;
+}
+
+.table-container {
+    max-width: 700px;
+    overflow-x: auto;
+    border-radius: 8px;
+    padding: 0 10px;
+    /* Ruang tambahan di samping */
+}
+
+.transparent-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Warna putih dengan transparansi 50% */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Efek bayangan */
+}
+
+.transparent-table th,
+.transparent-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    /* Garis bawah yang sedikit transparan */
+    font-size: 14px;
+}
+
+.transparent-table th {
+    background-color: rgba(0, 0, 0, 0.1);
+    /* Latar belakang header tabel dengan transparansi */
+    color: #333;
+    font-weight: bold;
+}
+
+.transparent-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    /* Efek hover yang lebih cerah */
+}
