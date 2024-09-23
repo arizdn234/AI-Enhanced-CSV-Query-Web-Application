@@ -1,236 +1,324 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <!-- <link rel="stylesheet" href="/static/css/styles.css" /> -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    *,
+    .card {
+      transition: all .3s ease-in-out;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="home-container">
-        <!-- Tombol Logout dan Tema -->
-        <div class="header-actions">
-            <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
-            <button id="theme-toggle" class="btn secondary-button" onclick="toggleTheme()"><i class="fas fa-adjust"></i>
-                Toggle Theme</button>
+  <div class="flex items-center w-full bg-gradient-to-br from-blue-400 to-violet-900">
+    <nav class="glass navbar top-0 px-16 py-6 w-full flex fixed z-10 justify-between items-center">
+      <h2 class="text-3xl text-cyan-800 font-bold glass py-1 px-3 rounded-md cursor-pointer shadow-xl"
+        style="font-family: 'Courier New', Courier, monospace;">Ai Assist</h2>
+
+      <div class="text-blue-100 flex gap-8">
+        <a class="hover:text-blue-300 active:text-blue-400" href="#home">Home</a>
+        <a class="hover:text-blue-300 active:text-blue-400" href="#about">About</a>
+        <a class="hover:text-blue-300 active:text-blue-400" href="#contact">Developer Contact</a>
+        <a class="hover:text-blue-300 active:text-blue-400" href="#recommend">Ask TAPAS AI</a>
+        <a class="hover:text-blue-300 active:text-blue-400" href="#recommendation-section">AI Chat</a>
+
+        <button
+          class="flex items-center px-4 pt-2 pb-3 bg-cyan-300 hover:bg-cyan-400 text-cyan-900 font-semibold rounded-md"
+          onclick="logout()">
+          <i class="fas fa-sign-out-alt mr-2 mt-2"></i>
+          <span>Logout</span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="px-28 mt-28" id="home">
+      <div class="px-28 mt-28">
+        <div class="text-center mb-6">
+          <h3 class="text-4xl font-semibold text-cyan-300">Welcome to the Future of Home Energy Management</h3>
+          <p class="text-lg text-cyan-200 mt-2">AI-Powered Smart Home Energy Management System</p>
+          <p class="text-base text-cyan-100 mt-4 px-4">
+            Experience unparalleled convenience and efficiency with our cutting-edge AI-powered energy management system
+            designed to transform the way you manage energy in your home.
+          </p>
         </div>
 
-        <!-- Heading Utama dengan Ikon -->
-        <h1><i class="fas fa-home"></i> Home</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="card glass w-full max-w-lg mx-auto hover:scale-105 hover:bg-cyan-300 cursor-pointer"
+            data-aos="fade-up">
+            <div class="card-body">
+              <h2 class="card-title text-xl font-bold text-cyan-900">Smart Monitoring</h2>
+              <p class="text-cyan-800">Track your energy consumption in real-time for better insights.</p>
+            </div>
+          </div>
+          <div class="card glass w-full max-w-lg mx-auto hover:scale-105 hover:bg-cyan-300 cursor-pointer"
+            data-aos="fade-up" data-aos-delay="100">
+            <div class="card-body">
+              <h2 class="card-title text-xl font-bold text-cyan-900">Personalized Recommendations</h2>
+              <p class="text-cyan-800">Get tailored suggestions to optimize your energy usage.</p>
+            </div>
+          </div>
+          <div class="card glass w-full max-w-lg mx-auto hover:scale-105 hover:bg-cyan-300 cursor-pointer"
+            data-aos="fade-up" data-aos-delay="200">
+            <div class="card-body">
+              <h2 class="card-title text-xl font-bold text-cyan-900">Eco-Friendly Solutions</h2>
+              <p class="text-cyan-800">Contribute to a sustainable future while saving on bills.</p>
+            </div>
+          </div>
+          <div class="card glass w-full max-w-lg mx-auto hover:scale-105 hover:bg-cyan-300 cursor-pointer"
+            data-aos="fade-up" data-aos-delay="300">
+            <div class="card-body">
+              <h2 class="card-title text-xl font-bold text-cyan-900">User-Friendly Interface</h2>
+              <p class="text-cyan-800">Control your energy management with an intuitive dashboard.</p>
+            </div>
+          </div>
+          <div class="card glass w-full max-w-lg mx-auto hover:scale-105 hover:bg-cyan-300 cursor-pointer"
+            data-aos="fade-up" data-aos-delay="400">
+            <div class="card-body">
+              <h2 class="card-title text-xl font-bold text-cyan-900">Seamless Integration</h2>
+              <p class="text-cyan-800">Works effortlessly with your existing smart home devices.</p>
+            </div>
+          </div>
+          <div class="card glass w-full max-w-lg mx-auto hover:scale-105 hover:bg-cyan-300 cursor-pointer"
+            data-aos="fade-up" data-aos-delay="500">
+            <div class="card-body">
+              <h2 class="card-title text-xl font-bold text-cyan-900">24/7 Support</h2>
+              <p class="text-cyan-800">Get assistance whenever you need it with our dedicated support team.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <!-- Informasi CSV dengan Ikon -->
-        <section id="csv-info" class="info-section">
-            <h2><i class="fas fa-file-csv"></i> CSV Information</h2>
-            <p><strong>Columns:</strong> Date, Time, Appliance, Energy_Consumption, Room, Status, Temperature,
-                Weather_Condition, Number_of_People, Activity, Season, Energy_Rating, Usage_Duration, Appliance_Wattage
+      </header>
+
+      <!-- Informasi CSV dengan Ikon -->
+      <section id="csv-info" class="mb-8 mt-16">
+        <h2 class="text-2xl font-semibold text-cyan-300 mb-4 flex items-center">
+          <i class="fas fa-file-csv mr-2"></i> CSV Information
+        </h2>
+
+        <!-- Main container with background blur -->
+        <div
+          class="flex flex-col lg:flex-row w-full items-center inset-0 rounded-lg bg-gradient-to-br from-blue-400 to-violet-900 opacity-80 backdrop-blur-md">
+
+          <div class="card w-full p-6">
+            <p class="text-cyan-200 mb-4">
+              <strong>Example rows:</strong>
             </p>
-            <p><strong>Example rows:</strong></p>
-            <div class="table-container">
-                <table class="transparent-table">
-                    <thead>
-                        <tr>
-                            <th><i class="fas fa-calendar-day"></i> Date</th>
-                            <th>Time</th>
-                            <th>Appliance</th>
-                            <th>Energy Consumption</th>
-                            <th>Room</th>
-                            <th>Status</th>
-                            <th>Temperature</th>
-                            <th>Weather Condition</th>
-                            <th>Number of People</th>
-                            <th>Activity</th>
-                            <th>Season</th>
-                            <th>Energy Rating</th>
-                            <th>Usage Duration</th>
-                            <th>Appliance Wattage</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>2024-01-01</td>
-                            <td>00:00</td>
-                            <td><i class="fas fa-temperature-low"></i> Refrigerator</td>
-                            <td>1.2</td>
-                            <td>Kitchen</td>
-                            <td>On</td>
-                            <td>5</td>
-                            <td>Clear</td>
-                            <td>2</td>
-                            <td>Sleeping</td>
-                            <td>Winter</td>
-                            <td>A</td>
-                            <td>24</td>
-                            <td>150</td>
-                        </tr>
-                        <tr>
-                            <td>2024-01-01</td>
-                            <td>09:00</td>
-                            <td><i class="fas fa-tv"></i> TV</td>
-                            <td>0.8</td>
-                            <td>Living Room</td>
-                            <td>On</td>
-                            <td>4</td>
-                            <td>Cloudy</td>
-                            <td>4</td>
-                            <td>Watching TV</td>
-                            <td>Winter</td>
-                            <td>B</td>
-                            <td>4</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>2024-01-01</td>
-                            <td>18:00</td>
-                            <td><i class="fas fa-lightbulb"></i> Light</td>
-                            <td>0.1</td>
-                            <td>Kitchen</td>
-                            <td>On</td>
-                            <td>4</td>
-                            <td>Cloudy</td>
-                            <td>4</td>
-                            <td>Dinner</td>
-                            <td>Winter</td>
-                            <td>D</td>
-                            <td>2</td>
-                            <td>60</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
 
-        <!-- Gambar Dummy untuk Ilustrasi -->
-        <div class="image-placeholder">
-            <img style="text-align: center; margin-top: 1em;" src="https://picsum.photos/700/200" alt="Sample Image" />
+            <!-- Make table scrollable on smaller screens -->
+            <div class="overflow-x-auto">
+              <table class="table-auto text-cyan-100 text-left w-full">
+                <thead>
+                  <tr class="bg-transparent border-t border-b">
+                    <th class="px-4 py-2">
+                      <i class="fas fa-calendar-day"></i> Date
+                    </th>
+                    <th class="px-4 py-2">Time</th>
+                    <th class="px-4 py-2">Appliance</th>
+                    <th class="px-4 py-2">Energy Consumption</th>
+                    <th class="px-4 py-2">Room</th>
+                    <th class="px-4 py-2">Status</th>
+                    <th class="px-4 py-2">Temperature</th>
+                    <th class="px-4 py-2">Weather Condition</th>
+                    <th class="px-4 py-2">Number of People</th>
+                    <th class="px-4 py-2">Activity</th>
+                    <th class="px-4 py-2">Season</th>
+                    <th class="px-4 py-2">Energy Rating</th>
+                    <th class="px-4 py-2">Usage Duration</th>
+                    <th class="px-4 py-2">Appliance Wattage</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-transparent">
+                  <tr>
+                    <td class="px-4 py-2">2024-01-01</td>
+                    <td class="px-4 py-2">00:00</td>
+                    <td class="px-4 py-2 h-full flex items-center">
+                      <i class="fas fa-temperature-low mr-2"></i> Refrigerator
+                    </td>
+                    <td class="px-4 py-2">1.2</td>
+                    <td class="px-4 py-2">Kitchen</td>
+                    <td class="px-4 py-2">On</td>
+                    <td class="px-4 py-2">5</td>
+                    <td class="px-4 py-2">Clear</td>
+                    <td class="px-4 py-2">2</td>
+                    <td class="px-4 py-2">Sleeping</td>
+                    <td class="px-4 py-2">Winter</td>
+                    <td class="px-4 py-2">A</td>
+                    <td class="px-4 py-2">24</td>
+                    <td class="px-4 py-2">150</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-2">2024-01-01</td>
+                    <td class="px-4 py-2">09:00</td>
+                    <td class="px-4 py-2 flex items-center">
+                      <i class="fas fa-tv mr-2"></i> TV
+                    </td>
+                    <td class="px-4 py-2">0.8</td>
+                    <td class="px-4 py-2">Living Room</td>
+                    <td class="px-4 py-2">On</td>
+                    <td class="px-4 py-2">4</td>
+                    <td class="px-4 py-2">Cloudy</td>
+                    <td class="px-4 py-2">4</td>
+                    <td class="px-4 py-2">Watching TV</td>
+                    <td class="px-4 py-2">Winter</td>
+                    <td class="px-4 py-2">B</td>
+                    <td class="px-4 py-2">4</td>
+                    <td class="px-4 py-2">100</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-2">2024-01-01</td>
+                    <td class="px-4 py-2">18:00</td>
+                    <td class="px-4 py-2 flex items-center">
+                      <i class="fas fa-lightbulb mr-2"></i> Light
+                    </td>
+                    <td class="px-4 py-2">0.1</td>
+                    <td class="px-4 py-2">Kitchen</td>
+                    <td class="px-4 py-2">On</td>
+                    <td class="px-4 py-2">4</td>
+                    <td class="px-4 py-2">Cloudy</td>
+                    <td class="px-4 py-2">4</td>
+                    <td class="px-4 py-2">Dinner</td>
+                    <td class="px-4 py-2">Winter</td>
+                    <td class="px-4 py-2">D</td>
+                    <td class="px-4 py-2">2</td>
+                    <td class="px-4 py-2">60</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <!-- Formulir Pertanyaan -->
-        <section style="margin-top: 3em;" id="question-form-section">
-            <form id="question-form">
-                <label for="question"><i class="fas fa-question-circle"></i> Ask a question:</label>
-                <input type="text" id="question" name="question" placeholder="Enter your question..." required>
-                <input type="submit" value="Submit">
-            </form>
-            <div class="response-section" id="response-section">
-                <!-- AI-generated responses will be added here -->
+      <!-- About Section with Background Blur -->
+      <section id="about" class="py-16 bg-transparent relative">
+        <!-- Background Blur -->
+
+        <!-- Content -->
+        <div class="relative container mx-auto px-4">
+          <div class="flex flex-col lg:flex-row items-center justify-between">
+            <!-- Text Content -->
+            <div class="pl-16  lg:w-2/3 mb-10 lg:mb-0 text-white" data-aos="fade-right">
+              <h2 class="text-4xl font-bold mb-4">About Ai Assist</h2>
+              <p class="text-lg mb-6">
+                Ai Assist is an innovative AI-powered tool designed to enhance your productivity. Whether you need help
+                with automating tasks, answering questions, or providing recommendations, our AI is here to assist.
+              </p>
+              <p class="text-lg mb-6">
+                Our mission is to integrate AI into everyday tasks, making technology accessible and easy to use for
+                everyone. With advanced algorithms and a user-friendly interface, Ai Assist is your go-to assistant for
+                simplifying life.
+              </p>
+              <a href="#contact"
+                class="inline-block bg-cyan-500 text-white py-3 px-6 rounded-md font-semibold hover:bg-cyan-600 transition-all">Learn
+                More</a>
             </div>
+
+            <!-- Image -->
+            <div class="lg:w-1/3" data-aos="fade-left">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"
+                class="w-32 h-32 mx-auto rounded-lg shadow-lg fill-current text-cyan-300">
+                <!-- Petir SVG -->
+                <path d="M32.002 2l-12.62 33h11.178l-3.94 25 21.364-29H35.056l5.472-29H32.002z" />
+              </svg>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="py-16 bg-gradient-to-br from-blue-400 to-violet-900 text-white">
+        <div class="container mx-auto px-16">
+          <h2 class="text-3xl font-bold text-center mb-8 text-cyan-300" data-aos="fade-up">
+            Developer Contact
+          </h2>
+
+          <div class="flex flex-col lg:flex-row items-center justify-between lg:space-x-12">
+
+            <!-- Contact Info -->
+            <div class="lg:w-1/2 w-full mb-8 lg:mb-0" data-aos="fade-right">
+              <h3 class="text-2xl font-semibold mb-4">Get in Touch</h3>
+              <p class="mb-4">
+                If you have any questions, suggestions, or issues, feel free to reach out. Our team is here to assist
+                you!
+              </p>
+              <p class="flex items-center mb-2">
+                <i class="fas fa-envelope mr-2 text-cyan-300"></i> zidanerizal17@gmail.com
+              </p>
+              <p class="flex items-center mb-2">
+                <i class="fas fa-phone mr-2 text-cyan-300"></i> +62 815-2947-4830
+              </p>
+              <p class="flex items-center">
+                <i class="fas fa-map-marker-alt mr-2 text-cyan-300"></i> Lamongan, District Lamongan, Lamongan Regency, East Java
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="recommend" class="flex pt-4">
+        <!-- Formulir Pertanyaan -->
+        <section class="card p-4 mx-2 glass w-1/3" id="question-form-section">
+          <form id="question-form" class="space-y-4">
+            <label for="question" class="block text-base-700 text-lg font-semibold flex items-center">
+              <i class="fas fa-question-circle mr-2"></i> Ask a question:
+            </label>
+            <input type="text" id="question" name="question" placeholder="Enter your question..." required
+              class="block w-full px-4 py-2 border bg-base-100 border-indigo-200 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            <input type="submit" value="Submit"
+              class="block w-full bg-indigo-600 text-white font-semibold py-2 rounded-md hover:bg-indigo-700 cursor-pointer" />
+          </form>
+          <div class="response-section mt-4" id="response-section">
+            <!-- AI-generated responses will be added here -->
+          </div>
         </section>
 
-        <hr>
+        <hr class="my-8" />
 
         <!-- Rekomendasi Penghematan Energi dengan Ikon -->
-        <section id="recommendation-section">
-            <h2><i class="fas fa-lightbulb"></i> Energy Saving Recommendations</h2>
-            <form id="recommend-form">
-                <label for="text"><i class="fas fa-comment-dots"></i> Describe your situation:</label>
-                <input type="text" id="text" name="text" placeholder="Describe your situation..." required>
-                <input type="submit" value="Get Recommendations">
-            </form>
-            <div id="recommendations-list">
-                <!-- Recommendations will be dynamically added here -->
-            </div>
+        <section class="card p-4 glass mx-2 bg-base-100 w-2/3 shadow-xl" id="recommendation-section">
+          <h2 class="text-2xl font-semibold mb-4 flex items-center text-base-700">
+            <i class="fas fa-lightbulb mr-2"></i> Energy Saving
+            Recommendations
+          </h2>
+          <form id="recommend-form" class="space-y-4">
+            <label for="text" class="block text-base-700 text-lg font-semibold flex items-center">
+              <i class="fas fa-comment-dots mr-2"></i> Describe your
+              situation:
+            </label>
+            <input type="text" id="text" name="text" placeholder="Describe your situation..." required
+              class="block w-full px-4 py-2 border border-base-300 synthwave:bg-indigo-700 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            <input type="submit" value="Get Recommendations"
+              class="block w-full bg-green-600 text-white font-semibold py-2 rounded-md hover:bg-green-700 cursor-pointer" />
+          </form>
+          <div id="recommendations-list" class="mt-4">
+            <!-- Recommendations will be dynamically added here -->
+          </div>
         </section>
+      </div>
     </div>
+  </div>
 
-    <script>
-        document.getElementById('question-form').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const question = document.getElementById('question').value;
-
-            fetch('/ask', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ question })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    const responseSection = document.getElementById('response-section');
-
-                    const card = document.createElement('div');
-                    card.className = 'card';
-
-                    const answerHeading = document.createElement('h3');
-                    answerHeading.textContent = 'Answer';
-                    card.appendChild(answerHeading);
-
-                    const answerPara = document.createElement('p');
-                    const friendly_answer = `Answer ${data.answer}\t ,Aggregator ${data.aggregator}`
-                    answerPara.textContent = friendly_answer;
-                    card.appendChild(answerPara);
-
-                    responseSection.appendChild(card);
-                })
-                .catch(error => console.error('Error:', error));
-        });
-
-        document.getElementById('recommend-form').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const text = document.getElementById('text').value;
-
-            fetch('/recommend', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ text })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    const recommendationsList = document.getElementById('recommendations-list');
-
-                    const recommendationDiv = document.createElement('div');
-                    recommendationDiv.classList.add('card');
-
-                    const inputPara = document.createElement('p');
-                    inputPara.classList.add('recommendation-input');
-                    inputPara.innerHTML = `<strong>Input:</strong> ${data.input}`;
-                    recommendationDiv.appendChild(inputPara);
-
-                    const recommendationPara = document.createElement('div');
-                    recommendationPara.classList.add('recommendation-output');
-                    const recommendationText = data.recommendation.Parts.join(" ");
-                    recommendationPara.innerHTML = convertMarkdownToHTML(recommendationText);
-                    recommendationDiv.appendChild(recommendationPara);
-
-                    recommendationsList.appendChild(recommendationDiv);
-                })
-                .catch(error => console.error('Error:', error));
-        });
-
-        function convertMarkdownToHTML(markdown) {
-            const rules = [
-                { regex: /###### (.*$)/gim, replacement: '<h6>$1</h6>' },
-                { regex: /##### (.*$)/gim, replacement: '<h5>$1</h5>' },
-                { regex: /#### (.*$)/gim, replacement: '<h4>$1</h4>' },
-                { regex: /### (.*$)/gim, replacement: '<h3>$1</h3>' },
-                { regex: /## (.*$)/gim, replacement: '<h2>$1</h2>' },
-                { regex: /# (.*$)/gim, replacement: '<h1>$1</h1>' },
-                { regex: /\*\*(.*)\*\*/gim, replacement: '<strong>$1</strong>' },
-                { regex: /\*(.*)\*/gim, replacement: '<em>$1</em>' },
-                { regex: /\n$/gim, replacement: '<br />' },
-                { regex: /^\> (.*$)/gim, replacement: '<blockquote>$1</blockquote>' },
-                { regex: /\n\*(.*)/gim, replacement: '<ul>\n<li>$1</li>\n</ul>' },
-                { regex: /\n[0-9]+\.(.*)/gim, replacement: '<ol>\n<li>$1</li>\n</ol>' },
-            ];
-            let html = markdown;
-            rules.forEach(rule => {
-                html = html.replace(rule.regex, rule.replacement);
-            });
-            return html.trim();
-        }
-
-        function logout() {
-            window.location.href = '/logout';
-        }
-    </script>
-
-    <script src="/static/js/script.js"></script>
+  <script src="/static/js/script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>
