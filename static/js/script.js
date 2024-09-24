@@ -1,7 +1,6 @@
 // smooth scroll
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('a[href^="#"]');
-console.log(navLinks);
 
 
 window.addEventListener('scroll', () => {
