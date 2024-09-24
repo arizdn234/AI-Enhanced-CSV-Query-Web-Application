@@ -1,23 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verify</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verification</title>
+
+    <!-- <link rel="stylesheet" href="/static/css/styles.css" /> -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        *,
+        .card {
+            transition: all .3s ease-in-out;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 
-<body>
-    <div class="container">
-        <h1>Verification</h1>
+<body class="min-h-screen bg-gradient-to-br from-blue-400 to-violet-900 flex flex-col items-center justify-center">
+    <nav class="glass navbar top-0 px-8 lg:px-16 py-6 w-full fixed z-10 flex justify-between items-center bg-opacity-50 backdrop-blur-md">
+        <h2 class="text-3xl text-cyan-800 font-bold glass py-1 px-3 rounded-md cursor-pointer shadow-xl"
+            style="font-family: 'Courier New', Courier, monospace;">Ai Assist</h2>
+
+        <div class="text-blue-100 flex gap-4 lg:gap-8">
+            <a class="hover:text-blue-300 active:text-blue-400" href="home.html">Home</a>
+            <a class="hover:text-blue-300 active:text-blue-400" href="#contact">Developer Contact</a>
+
+            <a href="/login">
+                <button class="flex items-center px-4 pt-2 pb-3 bg-cyan-300 hover:bg-cyan-400 text-cyan-900 font-semibold rounded-md">
+                    <i class="fas fa-sign-out-alt mr-2 mt-2"></i>
+                    <span>Login</span>
+                </button>
+            </a>
+        </div>
+    </nav>
+
+    <div class="card glass max-w-lg w-full p-8 mt-24 lg:mt-32 shadow-lg rounded-lg">
+        <h1 class="text-4xl font-semibold mb-6 text-cyan-400 text-center">Verification</h1>
         {{ if .error }}
-        <div class="error">{{ .error }}</div>
+        <div class="text-red-500 text-center mb-4">{{ .error }}</div>
         {{ end }}
         <form method="post" action="/verify">
-            <label>{{ .question }}</label>
-            <input type="text" id="answer" name="answer" required>
-            <input type="submit" value="Submit">
+            <label class="text-2l mb-6 text-cyan-400 text-center">{{ .question }}</label>
+            <input class="mt-1 p-2 block w-full bg-transparent border border-cyan-900 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 mb-2" type="text" id="answer" name="answer" required>
+            <input class="w-full py-2 px-4 bg-cyan-500 hover:bg-cyan-600 text-white font-bold rounded-md shadow-lg cursor-pointer" type="submit" value="Submit">
         </form>
     </div>
 </body>

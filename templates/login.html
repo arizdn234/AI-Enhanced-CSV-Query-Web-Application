@@ -1,31 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+
+    <!-- DaisyUI & Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        * {
+            transition: all 0.3s ease-in-out;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 
-<body>
-    <div class="container">
-        <h1>Login</h1>
+<body class="min-h-screen bg-gradient-to-br from-blue-400 to-violet-900 flex flex-col items-center justify-center">
+    <nav class="glass navbar top-0 px-8 lg:px-16 py-6 w-full fixed z-10 flex justify-between items-center bg-opacity-50 backdrop-blur-md">
+        <h2 class="text-3xl text-cyan-800 font-bold glass py-1 px-3 rounded-md cursor-pointer shadow-xl"
+            style="font-family: 'Courier New', Courier, monospace;">Ai Assist</h2>
+
+        <div class="text-blue-100 flex gap-4 lg:gap-8">
+            <a class="hover:text-blue-300 active:text-blue-400" href="home.html">Home</a>
+            <a class="hover:text-blue-300 active:text-blue-400" href="#contact">Developer Contact</a>
+
+            <a href="/login">
+                <button class="flex items-center px-4 pt-2 pb-3 bg-cyan-300 hover:bg-cyan-400 text-cyan-900 font-semibold rounded-md">
+                    <i class="fas fa-sign-out-alt mr-2 mt-2"></i>
+                    <span>Login</span>
+                </button>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Login Card -->
+    <div class="card glass max-w-lg w-full p-8 mt-24 lg:mt-32 shadow-lg rounded-lg">
+        <h1 class="text-4xl font-semibold mb-6 text-cyan-400 text-center">Login</h1>
         {{ if .error }}
-        <div class="error">{{ .error }}</div>
+        <div class="text-red-500 text-center mb-4">{{ .error }}</div>
         {{ end }}
-        <form method="post" action="/login">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
 
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+        <form method="post" action="/login" class="space-y-6">
+            <div>
+                <label for="username" class="block text-sm font-medium text-cyan-900">Username</label>
+                <input type="text" id="username" name="username" required
+                    class="mt-1 p-2 block w-full bg-transparent border border-cyan-900 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500">
+            </div>
 
-            <input type="submit" value="Login">
+            <div>
+                <label for="password" class="block text-sm font-medium text-cyan-900 ring-cyan-500">Password</label>
+                <input type="password" id="password" name="password" required
+                    class="mt-1 p-2 block w-full bg-transparent border border-cyan-900 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500">
+            </div>
+
+            <div class="text-center">
+                <input type="submit" value="Login"
+                    class="w-full py-2 px-4 bg-cyan-500 hover:bg-cyan-600 text-white font-bold rounded-md shadow-lg">
+            </div>
         </form>
-
-        <!-- Tambahkan tombol untuk mengubah tema -->
-        <button id="theme-toggle" class="btn secondary-button" onclick="toggleTheme()">Toggle Theme</button>
     </div>
 
     <script src="/static/js/script.js"></script>
