@@ -232,7 +232,7 @@ func main() {
 	r.Use(sessions.Sessions("mysession", store))
 
 	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "welcome.html", nil)
+		c.HTML(http.StatusOK, "login.html", nil)
 	})
 
 	r.GET("/login", func(c *gin.Context) {
