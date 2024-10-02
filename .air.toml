@@ -1,0 +1,15 @@
+# Config file for Air
+
+[build]
+  bin = "./tmp/main"                  # Adjust this path if needed
+  cmd = "go build -o \"./tmp/main\""  # Quote the path for the output binary
+  include_ext = ["go", "html", "css", "js"]
+  exclude_ext = ["log", "tmp"]
+  delay = 1000
+
+[log]
+  color = "true"
+
+[watch]
+  dirs = ["./"]
+  exclude_dir = ["tmp", "vendor"]
