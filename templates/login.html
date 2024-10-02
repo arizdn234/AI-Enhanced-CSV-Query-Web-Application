@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
 
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -126,15 +129,11 @@
 
         <div class="flex gap-4 lg:gap-8 items-center" style="color: rgba(0, 122, 255, 1);">
             <a href="/home">Home</a>
-            <a href="#contact">Developer Contacts</a>
+            <a href="https://arizdn234.github.io/arz-portfolio-112/" target="_blank">Developer Contacts</a>
 
-            <a href="/login" class="flex items-center px-4 pt-2 pb-3 font-semibold border" style="background: rgba(0, 122, 255, 1); border-radius: 11px;">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"
-                    style="color: #fff;">
-                    <path d="M20.84 20.84a10 10 0 1 0-17.68 0"></path>
-                    <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path>
-                </svg>
+            <a href="/login" class="flex items-center px-4 py-2 font-semibold border"
+                style="background: rgba(0, 122, 255, 1); border-radius: 11px;">
+                <i class='bx bxs-user-circle bx-sm text-white bx-burst-hover'></i>
                 <span class="ml-4 font-regular" style="color: #fff;">Login</span>
             </a>
         </div>
@@ -142,7 +141,8 @@
 
     <div class="card max-w-lg w-full p-8 mt-24 lg:mt-32 shadow-lg rounded-2xl" style="background: #fff;">
         <h1 class="text-3xl font-semibold mb-2 text-center" style="color: rgba(0, 122, 255, 100);">LOGIN FORM</h1>
-        <p class="mb-12 px-16 text-center" style="color: rgba(36, 36, 39, .700);">Welcome to <span class="font-bold">EnerBot</span>, login to continue</p>
+        <p class="mb-12 px-16 text-center" style="color: rgba(36, 36, 39, .700);">Welcome to <span
+                class="font-bold">EnerBot</span>, login to continue</p>
         {{ if .error }}
         <div class="text-red-500 text-center mb-4">{{ .error }}</div>
         {{ end }}
@@ -150,21 +150,27 @@
         <form method="post" action="/login" class="space-y-6">
             <div>
                 <label for="username" class="block text-m font-regular" style="color: rgb(36, 36, 39);">Username</label>
+                <i class='bx bx-user bx-sm absolute pt-3 pl-2' style="color: rgba(0, 122, 255, 1);"></i>
                 <input type="text" id="username" name="username" placeholder="Type your username here" required
-                    class="mt-1 p-2 pl-4 block w-full font-thin" style="background: rgba(120, 120, 128, 0.120); border-radius: 10px;">
+                    class="mt-1 p-2 pl-10 block w-full font-thin"
+                    style="background: rgba(120, 120, 128, 0.120); border-radius: 10px;">
             </div>
 
             <div>
                 <label for="password" class="block text-m font-regular" style="color: rgb(36, 36, 39);">Password</label>
+                <i class='bx bx-lock-alt bx-sm absolute pt-3 pl-2' style="color: rgba(0, 122, 255, 1);"></i>
                 <input type="password" id="password" name="password" placeholder="Type your password here" required
-                class="mt-1 p-2 pl-4 block w-full font-thin" style="background: rgba(120, 120, 128, 0.120); border-radius: 10px;">
+                    class="mt-1 p-2 pl-10 block w-full font-thin"
+                    style="background: rgba(120, 120, 128, 0.120); border-radius: 10px;">
             </div>
 
-            
+
             <div>
-                <p class="text-right pr-2 text-l font-regular cursor-pointer" style="color: rgba(0, 122, 255, 1);">Forgot password?</p>
+                <p class="text-right pr-2 text-l font-regular cursor-pointer" style="color: rgba(0, 122, 255, 1);">
+                    Forgot password?</p>
                 <input type="submit" value="Login"
-                    class="text-center w-full mt-2 py-2 text-white font-regular cursor-pointer" style="border-radius: 12px; background: rgba(0, 122, 255, 1);">
+                    class="text-center w-full mt-2 py-2 text-white font-regular cursor-pointer"
+                    style="border-radius: 12px; background: rgba(0, 122, 255, 1);">
             </div>
         </form>
     </div>
