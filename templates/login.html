@@ -6,13 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
 
-    <!-- DaisyUI & Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
+        @font-face {
+            font-family: 'SF Pro Text';
+            src: url('/static/my-font/SFPro/woff/SFProText-Bold.woff2') format('woff2'),
+                url('/static/my-font/SFPro/woff/SFProText-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Text';
+            src: url('/static/my-font/SFPro/woff/SFProText-Heavy.woff2') format('woff2'),
+                url('/static/my-font/SFPro/woff/SFProText-Heavy.woff') format('woff');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Text';
+            src: url('/static/my-font/SFPro/woff/SFProText-Light.woff2') format('woff2'),
+                url('/static/my-font/SFPro/woff/SFProText-Light.woff') format('woff');
+            font-weight: 200;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Text';
+            src: url('/static/my-font/SFPro/woff/SFProText-Regular.woff2') format('woff2'),
+                url('/static/my-font/SFPro/woff/SFProText-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Text';
+            src: url('/static/my-font/SFPro/woff/SFProText-Medium.woff2') format('woff2'),
+                url('/static/my-font/SFPro/woff/SFProText-Medium.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Text';
+            src: url('/static/my-font/SFPro/woff/SFProText-Semibold.woff2') format('woff2'),
+                url('/static/my-font/SFPro/woff/SFProText-Semibold.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
         * {
             transition: all 0.3s ease-in-out;
         }
@@ -20,55 +71,103 @@
         html {
             scroll-behavior: smooth;
         }
+
+        body {
+            font-family: 'SF Pro Text', sans-serif;
+            background: #fff;
+            color: #000;
+            position: relative;
+            overflow: hidden;
+            /* Make sure no overflow happens */
+        }
+
+        /* Abstract brush stroke background */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(78deg, rgba(1, 60, 255, 0.8), transparent 60%) 10% 10% / 340px 100px,
+                linear-gradient(120deg, rgba(255, 0, 100, 0.7), transparent 70%) 70% 20% / 460px 42px,
+                linear-gradient(102deg, rgba(255, 179, 0, 0.6), transparent 50%) 50% 80% / 220px 64px,
+                linear-gradient(150deg, rgba(0, 255, 255, 0.6), transparent 60%) 80% 60% / 190px 83px,
+                linear-gradient(210deg, rgba(179, 255, 0, 0.8), transparent 40%) 40% 40% / 140px 6px,
+                linear-gradient(300deg, rgba(0, 128, 255, 0.7), transparent 65%) 30% 70% / 200px 20px,
+                linear-gradient(330deg, rgba(255, 60, 100, 0.6), transparent 55%) 20% 30% / 670px 60px,
+                linear-gradient(250deg, rgba(100, 255, 100, 0.6), transparent 70%) 60% 50% / 220px 12px,
+                linear-gradient(60deg, rgba(100, 100, 255, 0.5), transparent 50%) 90% 10% / 1520px 148px;
+            background-repeat: no-repeat;
+            z-index: -2;
+        }
+
+        /* Dark overlay with blur */
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(19, 19, 38, 0.3);
+            backdrop-filter: blur(24px);
+            z-index: -1;
+        }
     </style>
 </head>
 
-<body class="min-h-screen bg-gradient-to-br from-blue-400 to-violet-900 flex flex-col items-center justify-center">
-    <nav class="glass navbar top-0 px-8 lg:px-16 py-6 w-full fixed z-10 flex justify-between items-center bg-opacity-50 backdrop-blur-md">
-        <h2 class="text-3xl text-cyan-800 font-bold glass py-1 px-3 rounded-md cursor-pointer shadow-xl"
-            style="font-family: 'Courier New', Courier, monospace;">Ai Assist</h2>
+<body class="relative min-h-screen flex flex-col items-center justify-center">
+    <nav class="navbar top-0 px-8 lg:px-16 py-6 w-full fixed z-10 flex justify-between items-center border border-bottom"
+        style="background: #fff;">
+        <h2 class="text-3xl font-bold rounded-md cursor-pointer"
+            style="font-family: 'Courier New', Courier, monospace; color: rgba(0, 122, 255, 1);">EnerBot</h2>
 
-        <div class="text-blue-100 flex gap-4 lg:gap-8">
-            <a class="hover:text-blue-300 active:text-blue-400" href="/home">Home</a>
-            <a class="hover:text-blue-300 active:text-blue-400" href="#contact">Developer Contact</a>
+        <div class="flex gap-4 lg:gap-8 items-center" style="color: rgba(0, 122, 255, 1);">
+            <a href="/home">Home</a>
+            <a href="#contact">Developer Contacts</a>
 
-            <a href="/login">
-                <button class="flex items-center px-4 pt-2 pb-3 bg-cyan-300 hover:bg-cyan-400 text-cyan-900 font-semibold rounded-md">
-                    <i class="fas fa-sign-out-alt mr-2 mt-2"></i>
-                    <span>Login</span>
-                </button>
+            <a href="/login" class="flex items-center px-4 pt-2 pb-3 font-semibold border" style="background: rgba(0, 122, 255, 1); border-radius: 11px;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"
+                    style="color: #fff;">
+                    <path d="M20.84 20.84a10 10 0 1 0-17.68 0"></path>
+                    <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path>
+                </svg>
+                <span class="ml-4 font-regular" style="color: #fff;">Login</span>
             </a>
         </div>
     </nav>
 
-    <!-- Login Card -->
-    <div class="card glass max-w-lg w-full p-8 mt-24 lg:mt-32 shadow-lg rounded-lg">
-        <h1 class="text-4xl font-semibold mb-6 text-cyan-400 text-center">Login</h1>
+    <div class="card max-w-lg w-full p-8 mt-24 lg:mt-32 shadow-lg rounded-2xl" style="background: #fff;">
+        <h1 class="text-4xl font-semibold mb-2 text-center" style="color: rgba(0, 122, 255, 100);">LOGIN FORM</h1>
+        <p class="mb-12 px-16 text-center" style="color: rgba(36, 36, 39, .700);">Welcome to <span class="font-bold">EnerBot</span>, login to continue</p>
         {{ if .error }}
         <div class="text-red-500 text-center mb-4">{{ .error }}</div>
         {{ end }}
 
         <form method="post" action="/login" class="space-y-6">
             <div>
-                <label for="username" class="block text-sm font-medium text-cyan-900">Username</label>
+                <label for="username" class="block text-m font-regular" style="color: rgb(36, 36, 39);">Username</label>
                 <input type="text" id="username" name="username" required
-                    class="mt-1 p-2 block w-full bg-transparent border border-cyan-900 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500">
+                    class="mt-1 p-2 pl-4 block w-full font-thin" style="background: rgba(120, 120, 128, 0.120); border-radius: 10px;">
             </div>
 
             <div>
-                <label for="password" class="block text-sm font-medium text-cyan-900 ring-cyan-500">Password</label>
+                <label for="password" class="block text-m font-regular" style="color: rgb(36, 36, 39);">Password</label>
                 <input type="password" id="password" name="password" required
-                    class="mt-1 p-2 block w-full bg-transparent border border-cyan-900 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500">
+                class="mt-1 p-2 pl-4 block w-full font-thin" style="background: rgba(120, 120, 128, 0.120); border-radius: 10px;">
             </div>
 
-            <div class="text-center">
+            
+            <div>
+                <p class="text-right pr-2 text-l font-regular cursor-pointer" style="color: rgba(0, 122, 255, 1);">Forgot password?</p>
                 <input type="submit" value="Login"
-                    class="w-full py-2 px-4 bg-cyan-500 hover:bg-cyan-600 text-white font-bold rounded-md shadow-lg">
+                    class="text-center w-full mt-2 py-2 text-white font-regular" style="border-radius: 12px; background: rgba(0, 122, 255, 1);">
             </div>
         </form>
     </div>
-
-    <script src="/static/js/script.js"></script>
 </body>
 
 </html>
