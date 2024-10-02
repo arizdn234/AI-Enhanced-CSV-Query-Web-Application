@@ -141,7 +141,7 @@
     </nav>
 
     <div class="card max-w-lg w-full p-8 mt-24 lg:mt-32 shadow-lg rounded-2xl" style="background: #fff;">
-        <h1 class="text-4xl font-semibold mb-2 text-center" style="color: rgba(0, 122, 255, 100);">LOGIN FORM</h1>
+        <h1 class="text-3xl font-semibold mb-2 text-center" style="color: rgba(0, 122, 255, 100);">LOGIN FORM</h1>
         <p class="mb-12 px-16 text-center" style="color: rgba(36, 36, 39, .700);">Welcome to <span class="font-bold">EnerBot</span>, login to continue</p>
         {{ if .error }}
         <div class="text-red-500 text-center mb-4">{{ .error }}</div>
@@ -150,13 +150,13 @@
         <form method="post" action="/login" class="space-y-6">
             <div>
                 <label for="username" class="block text-m font-regular" style="color: rgb(36, 36, 39);">Username</label>
-                <input type="text" id="username" name="username" required
+                <input type="text" id="username" name="username" placeholder="Type your username here" required
                     class="mt-1 p-2 pl-4 block w-full font-thin" style="background: rgba(120, 120, 128, 0.120); border-radius: 10px;">
             </div>
 
             <div>
                 <label for="password" class="block text-m font-regular" style="color: rgb(36, 36, 39);">Password</label>
-                <input type="password" id="password" name="password" required
+                <input type="password" id="password" name="password" placeholder="Type your password here" required
                 class="mt-1 p-2 pl-4 block w-full font-thin" style="background: rgba(120, 120, 128, 0.120); border-radius: 10px;">
             </div>
 
@@ -164,7 +164,7 @@
             <div>
                 <p class="text-right pr-2 text-l font-regular cursor-pointer" style="color: rgba(0, 122, 255, 1);">Forgot password?</p>
                 <input type="submit" value="Login"
-                    class="text-center w-full mt-2 py-2 text-white font-regular" style="border-radius: 12px; background: rgba(0, 122, 255, 1);">
+                    class="text-center w-full mt-2 py-2 text-white font-regular cursor-pointer" style="border-radius: 12px; background: rgba(0, 122, 255, 1);">
             </div>
         </form>
     </div>
