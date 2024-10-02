@@ -47,3 +47,7 @@ go.work.sum
 # Executables
 /build
 /bin
+/tmp
+
+# Gin
+gin-bin
