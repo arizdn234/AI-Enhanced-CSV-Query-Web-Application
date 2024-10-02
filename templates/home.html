@@ -6,312 +6,417 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home</title>
 
-  <!-- <link rel="stylesheet" href="/static/css/styles.css" /> -->
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Boxicons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
-    *,
-    .card {
-      transition: all .3s ease-in-out;
+    @font-face {
+      font-family: 'SF Pro Text';
+      src: url('/static/my-font/SFPro/woff/SFProText-Bold.woff2') format('woff2'),
+        url('/static/my-font/SFPro/woff/SFProText-Bold.woff') format('woff');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'SF Pro Text';
+      src: url('/static/my-font/SFPro/woff/SFProText-Heavy.woff2') format('woff2'),
+        url('/static/my-font/SFPro/woff/SFProText-Heavy.woff') format('woff');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'SF Pro Text';
+      src: url('/static/my-font/SFPro/woff/SFProText-Light.woff2') format('woff2'),
+        url('/static/my-font/SFPro/woff/SFProText-Light.woff') format('woff');
+      font-weight: 200;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'SF Pro Text';
+      src: url('/static/my-font/SFPro/woff/SFProText-Regular.woff2') format('woff2'),
+        url('/static/my-font/SFPro/woff/SFProText-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'SF Pro Text';
+      src: url('/static/my-font/SFPro/woff/SFProText-Medium.woff2') format('woff2'),
+        url('/static/my-font/SFPro/woff/SFProText-Medium.woff') format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'SF Pro Text';
+      src: url('/static/my-font/SFPro/woff/SFProText-Semibold.woff2') format('woff2'),
+        url('/static/my-font/SFPro/woff/SFProText-Semibold.woff') format('woff');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    * {
+      transition: all 0.3s ease-in-out;
     }
 
     html {
       scroll-behavior: smooth;
     }
+
+    body {
+      font-family: 'SF Pro Text', sans-serif;
+      background: rgba(84, 84, 86, .340);
+      color: #000;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Abstract brush stroke background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 90px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        linear-gradient(78deg, rgba(1, 60, 255, 0.8), transparent 60%) 10% 10% / 340px 100px,
+        linear-gradient(178deg, rgba(1, 60, 255, 0.8), transparent 90%) 90% 90% / 240px 560px,
+        linear-gradient(120deg, rgba(255, 0, 100, 0.7), transparent 70%) 70% 20% / 460px 42px,
+        linear-gradient(102deg, rgba(255, 179, 0, 0.6), transparent 50%) 50% 80% / 220px 64px,
+        linear-gradient(330deg, rgba(34, 255, 5, 0.945), transparent 54%) 20% 30% / 670px 60px,
+        linear-gradient(150deg, rgba(0, 255, 255, 0.6), transparent 60%) 80% 60% / 190px 83px,
+        linear-gradient(330deg, rgba(255, 60, 100, 0.6), transparent 37%) 20% 30% / 670px 60px,
+        linear-gradient(210deg, rgba(179, 255, 0, 0.8), transparent 90%) 40% 40% / 140px 6px,
+        linear-gradient(300deg, rgba(0, 128, 255, 0.7), transparent 65%) 30% 70% / 200px 20px,
+        linear-gradient(330deg, rgba(255, 0, 212, 0.6), transparent 55%) 20% 30% / 670px 460px,
+        linear-gradient(250deg, rgb(12, 146, 255), transparent 89%) 60% 50% / 220px 112px,
+        linear-gradient(330deg, rgba(255, 60, 100, 0.6), transparent 65%) 20% 30% / 670px 60px,
+        linear-gradient(60deg, rgba(100, 100, 255, 0.5), transparent 30%) 90% 10% / 1520px 148px;
+      background-repeat: no-repeat;
+      z-index: -2;
+    }
+
+    /* Dark overlay with blur */
+    body::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(236, 236, 241, 0.3);
+      backdrop-filter: blur(24px);
+      z-index: -1;
+    }
   </style>
 </head>
 
-<body>
-  <div class="flex items-center w-full bg-gradient-to-br from-blue-400 to-violet-900">
-    <nav class="glass navbar top-0 px-16 py-6 w-full flex fixed z-10 justify-between items-center">
-      <h2 class="text-3xl text-cyan-800 font-bold glass py-1 px-3 rounded-md cursor-pointer shadow-xl"
-        style="font-family: 'Courier New', Courier, monospace;">Ai Assist</h2>
+<body class="relative min-h-screen flex flex-col items-center justify-center">
+  <nav class="navbar top-0 px-8 lg:px-16 py-6 w-full fixed z-10 flex justify-between items-center"
+    style="background: #fff;">
+    <h2 class="text-3xl font-bold rounded-md cursor-pointer"
+      style="font-family: 'Courier New', Courier, monospace; color: rgba(0, 122, 255, 1);">EnerBot</h2>
 
-      <div class="text-blue-100 flex gap-8">
-        <a class="hover:text-blue-300 active:text-blue-400" href="#home">Home</a>
-        <a class="hover:text-blue-300 active:text-blue-400" href="#about">About</a>
-        <a class="hover:text-blue-300 active:text-blue-400" href="#contact">Developer Contact</a>
-        <a class="hover:text-blue-300 active:text-blue-400" href="#recommend">Ask TAPAS AI</a>
-        <a class="hover:text-blue-300 active:text-blue-400" href="#recommendation-section">AI Chat</a>
+    <div class="flex gap-4 lg:gap-8 items-center" style="color: rgba(0, 122, 255, 1);">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Developer Contact</a>
+      <a href="#recommend">Ask TAPAS AI</a>
+      <a href="#recommendation-section">AI Chat</a>
 
-        <button
-          class="flex items-center px-4 pt-2 pb-3 bg-cyan-300 hover:bg-cyan-400 text-cyan-900 font-semibold rounded-md"
-          onclick="logout()">
-          <i class="fas fa-sign-out-alt mr-2 mt-2"></i>
-          <span>Logout</span>
-        </button>
-      </div>
-    </nav>
+      <a onclick="logout()" class="flex items-center px-4 py-2 font-semibold border"
+        style="background: rgba(0, 122, 255, 1); border-radius: 11px;">
+        <i class='bx bx-log-out-circle bx-sm text-white bx-burst-hover'></i>
+        <span class="ml-2 pr-1 font-regular cursor-pointer" style="color: #fff;">Logout</span>
+      </a>
+    </div>
+  </nav>
 
-    <div class="px-28 mt-28" id="home">
-      <div class="px-28 mt-28">
-        <div class="text-center mb-6">
-          <h3 class="text-4xl font-semibold text-cyan-300">Welcome to the Future of Home Energy Management</h3>
-          <p class="text-lg text-cyan-200 mt-2">AI-Powered Smart Home Energy Management System</p>
-          <p class="text-base text-cyan-100 mt-4 px-4">
-            Experience unparalleled convenience and efficiency with our cutting-edge AI-powered energy management system
-            designed to transform the way you manage energy in your home.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="card glass w-full max-w-lg mx-auto hover:scale-105 hover:bg-cyan-300 cursor-pointer"
-            data-aos="fade-up">
-            <div class="card-body">
-              <h2 class="card-title text-xl font-bold text-cyan-900">Smart Monitoring</h2>
-              <p class="text-cyan-800">Track your energy consumption in real-time for better insights.</p>
-            </div>
-          </div>
-          <div class="card glass w-full max-w-lg mx-auto hover:scale-105 hover:bg-cyan-300 cursor-pointer"
-            data-aos="fade-up" data-aos-delay="100">
-            <div class="card-body">
-              <h2 class="card-title text-xl font-bold text-cyan-900">Personalized Recommendations</h2>
-              <p class="text-cyan-800">Get tailored suggestions to optimize your energy usage.</p>
-            </div>
-          </div>
-          <div class="card glass w-full max-w-lg mx-auto hover:scale-105 hover:bg-cyan-300 cursor-pointer"
-            data-aos="fade-up" data-aos-delay="200">
-            <div class="card-body">
-              <h2 class="card-title text-xl font-bold text-cyan-900">Eco-Friendly Solutions</h2>
-              <p class="text-cyan-800">Contribute to a sustainable future while saving on bills.</p>
-            </div>
-          </div>
-          <div class="card glass w-full max-w-lg mx-auto hover:scale-105 hover:bg-cyan-300 cursor-pointer"
-            data-aos="fade-up" data-aos-delay="300">
-            <div class="card-body">
-              <h2 class="card-title text-xl font-bold text-cyan-900">User-Friendly Interface</h2>
-              <p class="text-cyan-800">Control your energy management with an intuitive dashboard.</p>
-            </div>
-          </div>
-          <div class="card glass w-full max-w-lg mx-auto hover:scale-105 hover:bg-cyan-300 cursor-pointer"
-            data-aos="fade-up" data-aos-delay="400">
-            <div class="card-body">
-              <h2 class="card-title text-xl font-bold text-cyan-900">Seamless Integration</h2>
-              <p class="text-cyan-800">Works effortlessly with your existing smart home devices.</p>
-            </div>
-          </div>
-          <div class="card glass w-full max-w-lg mx-auto hover:scale-105 hover:bg-cyan-300 cursor-pointer"
-            data-aos="fade-up" data-aos-delay="500">
-            <div class="card-body">
-              <h2 class="card-title text-xl font-bold text-cyan-900">24/7 Support</h2>
-              <p class="text-cyan-800">Get assistance whenever you need it with our dedicated support team.</p>
-            </div>
-          </div>
-        </div>
+  <div class="px-28 mt-28" id="home">
+    <div class="px-28 mt-28">
+      <div class="text-center mb-6">
+        <h3 class="text-6xl font-bold">Welcome to the Future of Home Energy Management</h3>
+        <p class="text-2xl mt-2 font-thin" style="color: rgba(36, 36, 39, .800);">AI-Powered Smart Home Energy Management System</p>
+        <p class="text-base mt-4 px-4 font-regular">
+          Experience unparalleled convenience and efficiency with our cutting-edge AI-powered energy management system
+          designed to transform the way you manage energy in your home.
+        </p>
       </div>
 
-      </header>
-
-      <!-- Informasi CSV dengan Ikon -->
-      <section id="csv-info" class="mb-8 mt-16">
-        <h2 class="text-2xl font-semibold text-cyan-300 mb-4 flex items-center">
-          <i class="fas fa-file-csv mr-2"></i> CSV Information
-        </h2>
-
-        <!-- Main container with background blur -->
-        <div
-          class="flex flex-col lg:flex-row w-full items-center inset-0 rounded-lg bg-gradient-to-br from-blue-400 to-violet-900 opacity-80 backdrop-blur-md">
-
-          <div class="card w-full p-6">
-            <p class="text-cyan-200 mb-4">
-              <strong>Example rows:</strong>
-            </p>
-
-            <!-- Make table scrollable on smaller screens -->
-            <div class="overflow-x-auto">
-              <table class="table-auto text-cyan-100 text-left w-full">
-                <thead>
-                  <tr class="bg-transparent border-t border-b">
-                    <th class="px-4 py-2">
-                      <i class="fas fa-calendar-day"></i> Date
-                    </th>
-                    <th class="px-4 py-2">Time</th>
-                    <th class="px-4 py-2">Appliance</th>
-                    <th class="px-4 py-2">Energy Consumption</th>
-                    <th class="px-4 py-2">Room</th>
-                    <th class="px-4 py-2">Status</th>
-                    <th class="px-4 py-2">Temperature</th>
-                    <th class="px-4 py-2">Weather Condition</th>
-                    <th class="px-4 py-2">Number of People</th>
-                    <th class="px-4 py-2">Activity</th>
-                    <th class="px-4 py-2">Season</th>
-                    <th class="px-4 py-2">Energy Rating</th>
-                    <th class="px-4 py-2">Usage Duration</th>
-                    <th class="px-4 py-2">Appliance Wattage</th>
-                  </tr>
-                </thead>
-                <tbody class="bg-transparent">
-                  <tr>
-                    <td class="px-4 py-2">2024-01-01</td>
-                    <td class="px-4 py-2">00:00</td>
-                    <td class="px-4 py-2 h-full flex items-center">
-                      <i class="fas fa-temperature-low mr-2"></i> Refrigerator
-                    </td>
-                    <td class="px-4 py-2">1.2</td>
-                    <td class="px-4 py-2">Kitchen</td>
-                    <td class="px-4 py-2">On</td>
-                    <td class="px-4 py-2">5</td>
-                    <td class="px-4 py-2">Clear</td>
-                    <td class="px-4 py-2">2</td>
-                    <td class="px-4 py-2">Sleeping</td>
-                    <td class="px-4 py-2">Winter</td>
-                    <td class="px-4 py-2">A</td>
-                    <td class="px-4 py-2">24</td>
-                    <td class="px-4 py-2">150</td>
-                  </tr>
-                  <tr>
-                    <td class="px-4 py-2">2024-01-01</td>
-                    <td class="px-4 py-2">09:00</td>
-                    <td class="px-4 py-2 flex items-center">
-                      <i class="fas fa-tv mr-2"></i> TV
-                    </td>
-                    <td class="px-4 py-2">0.8</td>
-                    <td class="px-4 py-2">Living Room</td>
-                    <td class="px-4 py-2">On</td>
-                    <td class="px-4 py-2">4</td>
-                    <td class="px-4 py-2">Cloudy</td>
-                    <td class="px-4 py-2">4</td>
-                    <td class="px-4 py-2">Watching TV</td>
-                    <td class="px-4 py-2">Winter</td>
-                    <td class="px-4 py-2">B</td>
-                    <td class="px-4 py-2">4</td>
-                    <td class="px-4 py-2">100</td>
-                  </tr>
-                  <tr>
-                    <td class="px-4 py-2">2024-01-01</td>
-                    <td class="px-4 py-2">18:00</td>
-                    <td class="px-4 py-2 flex items-center">
-                      <i class="fas fa-lightbulb mr-2"></i> Light
-                    </td>
-                    <td class="px-4 py-2">0.1</td>
-                    <td class="px-4 py-2">Kitchen</td>
-                    <td class="px-4 py-2">On</td>
-                    <td class="px-4 py-2">4</td>
-                    <td class="px-4 py-2">Cloudy</td>
-                    <td class="px-4 py-2">4</td>
-                    <td class="px-4 py-2">Dinner</td>
-                    <td class="px-4 py-2">Winter</td>
-                    <td class="px-4 py-2">D</td>
-                    <td class="px-4 py-2">2</td>
-                    <td class="px-4 py-2">60</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="card w-full max-w-lg mx-auto py-6 px-8 text-center cursor-pointer"
+        style="background: #fff; border-radius: 24px;"
+          data-aos="fade-up">
+          <div class="card-body">
+            <h2 class="card-title text-xl font-semibold mb-1" style="color: rgba(0, 122, 255, 1);">Smart Monitoring</h2>
+            <p class="text-cyan-800">Track your energy consumption in real-time for better insights.</p>
           </div>
         </div>
-      </section>
-
-      <!-- About Section with Background Blur -->
-      <section id="about" class="py-16 bg-transparent relative">
-        <!-- Background Blur -->
-
-        <!-- Content -->
-        <div class="relative container mx-auto px-4">
-          <div class="flex flex-col lg:flex-row items-center justify-between">
-            <!-- Text Content -->
-            <div class="pl-16  lg:w-2/3 mb-10 lg:mb-0 text-white" data-aos="fade-right">
-              <h2 class="text-4xl font-bold mb-4">About Ai Assist</h2>
-              <p class="text-lg mb-6">
-                Ai Assist is an innovative AI-powered tool designed to enhance your productivity. Whether you need help
-                with automating tasks, answering questions, or providing recommendations, our AI is here to assist.
-              </p>
-              <p class="text-lg mb-6">
-                Our mission is to integrate AI into everyday tasks, making technology accessible and easy to use for
-                everyone. With advanced algorithms and a user-friendly interface, Ai Assist is your go-to assistant for
-                simplifying life.
-              </p>
-              <a href="#contact"
-                class="inline-block bg-cyan-500 text-white py-3 px-6 rounded-md font-semibold hover:bg-cyan-600 transition-all">Learn
-                More</a>
-            </div>
-
-            <!-- Image -->
-            <div class="lg:w-1/3" data-aos="fade-left">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"
-                class="w-32 h-32 mx-auto rounded-lg shadow-lg fill-current text-cyan-300">
-                <!-- Petir SVG -->
-                <path d="M32.002 2l-12.62 33h11.178l-3.94 25 21.364-29H35.056l5.472-29H32.002z" />
-              </svg>
-            </div>
-
+        <div class="card w-full max-w-lg mx-auto py-6 px-8 text-center cursor-pointer"
+        style="background: #fff; border-radius: 24px;"
+          data-aos="fade-up" data-aos-delay="100">
+          <div class="card-body">
+            <h2 class="card-title text-xl font-semibold mb-1" style="color: rgba(0, 122, 255, 1);">Personalized Recommendations</h2>
+            <p class="text-cyan-800">Get tailored suggestions to optimize your energy usage.</p>
           </div>
         </div>
-      </section>
-
-      <section id="contact" class="py-16 rounded-lg bg-gradient-to-br from-blue-400 to-violet-900 text-white">
-        <div class="container mx-auto px-16">
-          <h2 class="text-3xl font-bold text-center mb-8 text-cyan-300" data-aos="fade-up">
-            Developer Contact
-          </h2>
-
-          <div class="flex flex-col lg:flex-row items-center justify-between lg:space-x-12">
-
-            <!-- Contact Info -->
-            <div class="lg:w-1/2 w-full mb-8 lg:mb-0" data-aos="fade-right">
-              <h3 class="text-2xl font-semibold mb-4">Get in Touch</h3>
-              <p class="mb-4">
-                If you have any questions, suggestions, or issues, feel free to reach out. Our team is here to assist
-                you!
-              </p>
-              <p class="flex items-center mb-2">
-                <i class="fas fa-envelope mr-2 text-cyan-300"></i> zidanerizal17@gmail.com
-              </p>
-              <p class="flex items-center mb-2">
-                <i class="fas fa-phone mr-2 text-cyan-300"></i> +62 815-2947-4830
-              </p>
-              <p class="flex items-center">
-                <i class="fas fa-map-marker-alt mr-2 text-cyan-300"></i> Lamongan, District Lamongan, Lamongan Regency, East Java
-              </p>
-            </div>
+        <div class="card w-full max-w-lg mx-auto py-6 px-8 text-center cursor-pointer"
+        style="background: #fff; border-radius: 24px;"
+          data-aos="fade-up" data-aos-delay="200">
+          <div class="card-body">
+            <h2 class="card-title text-xl font-semibold mb-1" style="color: rgba(0, 122, 255, 1);">Eco-Friendly Solutions</h2>
+            <p class="text-cyan-800">Contribute to a sustainable future while saving on bills.</p>
           </div>
         </div>
-      </section>
-
-      <div id="recommend" class="mb-16 flex pt-4">
-        <!-- Formulir Pertanyaan -->
-        <section class="card p-4 mx-2 glass w-1/3" id="question-form-section">
-          <form id="question-form" class="space-y-4">
-            <label for="question" class="block text-cyan-900 text-lg font-semibold flex items-center">
-              <i class="fas fa-question-circle mr-2"></i> Ask a question:
-            </label>
-            <input type="text" id="question" name="question" placeholder="Enter your question..." required
-              class="block w-full px-4 py-2 border bg-transparent border-indigo-200 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" />
-            <input type="submit" value="Submit"
-              class="block w-full bg-indigo-600 text-white font-semibold py-2 rounded-md hover:bg-indigo-700 cursor-pointer" />
-          </form>
-          <div class="response-section mt-4" id="response-section">
-            <!-- AI-generated responses will be added here -->
+        <div class="card w-full max-w-lg mx-auto py-6 px-8 text-center cursor-pointer"
+        style="background: #fff; border-radius: 24px;"
+          data-aos="fade-up" data-aos-delay="300">
+          <div class="card-body">
+            <h2 class="card-title text-xl font-semibold mb-1" style="color: rgba(0, 122, 255, 1);">User-Friendly Interface</h2>
+            <p class="text-cyan-800">Control your energy management with an intuitive dashboard.</p>
           </div>
-        </section>
-
-        <hr class="my-8" />
-
-        <!-- Rekomendasi Penghematan Energi dengan Ikon -->
-        <section class="card p-4 glass mx-2 bg-base-100 w-2/3 shadow-xl" id="recommendation-section">
-          <h2 class="text-2xl font-semibold mb-4 flex items-center text-cyan-900">
-            <i class="fas fa-lightbulb mr-2"></i> Energy Saving
-            Recommendations
-          </h2>
-          <form id="recommend-form" class="space-y-4">
-            <label for="text" class="block text-cyan-900 text-lg font-semibold flex items-center">
-              <i class="fas fa-comment-dots mr-2"></i> Describe your
-              situation:
-            </label>
-            <input type="text" id="text" name="text" placeholder="Describe your situation..." required
-              class="block w-full px-4 py-2 bg-transparent border border-base-300 synthwave:bg-indigo-700 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" />
-            <input type="submit" value="Get Recommendations"
-              class="block w-full text-white bg-cyan-400 font-semibold py-2 rounded-md hover:bg-cyan-600 cursor-pointer" />
-          </form>
-          <div id="recommendations-list" class="mt-4">
-            <!-- Recommendations will be dynamically added here -->
+        </div>
+        <div class="card w-full max-w-lg mx-auto py-6 px-8 text-center cursor-pointer"
+        style="background: #fff; border-radius: 24px;"
+          data-aos="fade-up" data-aos-delay="400">
+          <div class="card-body">
+            <h2 class="card-title text-xl font-semibold mb-1" style="color: rgba(0, 122, 255, 1);">Seamless Integration</h2>
+            <p class="text-cyan-800">Works effortlessly with your existing smart home devices.</p>
           </div>
-        </section>
+        </div>
+        <div class="card w-full max-w-lg mx-auto py-6 px-8 text-center cursor-pointer"
+        style="background: #fff; border-radius: 24px;"
+          data-aos="fade-up" data-aos-delay="500">
+          <div class="card-body">
+            <h2 class="card-title text-xl font-semibold mb-1" style="color: rgba(0, 122, 255, 1);">24/7 Support</h2>
+            <p class="text-cyan-800">Get assistance whenever you need it with our dedicated support team.</p>
+          </div>
+        </div>
       </div>
     </div>
+
+    </header>
+
+    <!-- Informasi CSV dengan Ikon -->
+    <section id="csv-info" class="mb-8 mt-16">
+      <h2 class="text-2xl font-semibold text-cyan-300 mb-4 flex items-center">
+        <i class="fas fa-file-csv mr-2"></i> CSV Information
+      </h2>
+
+      <!-- Main container with background blur -->
+      <div
+        class="flex flex-col lg:flex-row w-full items-center inset-0 rounded-lg bg-gradient-to-br from-blue-400 to-violet-900 opacity-80 backdrop-blur-md">
+
+        <div class="card w-full p-6">
+          <p class="text-cyan-200 mb-4">
+            <strong>Example rows:</strong>
+          </p>
+
+          <!-- Make table scrollable on smaller screens -->
+          <div class="overflow-x-auto">
+            <table class="table-auto text-cyan-100 text-left w-full">
+              <thead>
+                <tr class="bg-transparent border-t border-b">
+                  <th class="px-4 py-2">
+                    <i class="fas fa-calendar-day"></i> Date
+                  </th>
+                  <th class="px-4 py-2">Time</th>
+                  <th class="px-4 py-2">Appliance</th>
+                  <th class="px-4 py-2">Energy Consumption</th>
+                  <th class="px-4 py-2">Room</th>
+                  <th class="px-4 py-2">Status</th>
+                  <th class="px-4 py-2">Temperature</th>
+                  <th class="px-4 py-2">Weather Condition</th>
+                  <th class="px-4 py-2">Number of People</th>
+                  <th class="px-4 py-2">Activity</th>
+                  <th class="px-4 py-2">Season</th>
+                  <th class="px-4 py-2">Energy Rating</th>
+                  <th class="px-4 py-2">Usage Duration</th>
+                  <th class="px-4 py-2">Appliance Wattage</th>
+                </tr>
+              </thead>
+              <tbody class="bg-transparent">
+                <tr>
+                  <td class="px-4 py-2">2024-01-01</td>
+                  <td class="px-4 py-2">00:00</td>
+                  <td class="px-4 py-2 h-full flex items-center">
+                    <i class="fas fa-temperature-low mr-2"></i> Refrigerator
+                  </td>
+                  <td class="px-4 py-2">1.2</td>
+                  <td class="px-4 py-2">Kitchen</td>
+                  <td class="px-4 py-2">On</td>
+                  <td class="px-4 py-2">5</td>
+                  <td class="px-4 py-2">Clear</td>
+                  <td class="px-4 py-2">2</td>
+                  <td class="px-4 py-2">Sleeping</td>
+                  <td class="px-4 py-2">Winter</td>
+                  <td class="px-4 py-2">A</td>
+                  <td class="px-4 py-2">24</td>
+                  <td class="px-4 py-2">150</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-2">2024-01-01</td>
+                  <td class="px-4 py-2">09:00</td>
+                  <td class="px-4 py-2 flex items-center">
+                    <i class="fas fa-tv mr-2"></i> TV
+                  </td>
+                  <td class="px-4 py-2">0.8</td>
+                  <td class="px-4 py-2">Living Room</td>
+                  <td class="px-4 py-2">On</td>
+                  <td class="px-4 py-2">4</td>
+                  <td class="px-4 py-2">Cloudy</td>
+                  <td class="px-4 py-2">4</td>
+                  <td class="px-4 py-2">Watching TV</td>
+                  <td class="px-4 py-2">Winter</td>
+                  <td class="px-4 py-2">B</td>
+                  <td class="px-4 py-2">4</td>
+                  <td class="px-4 py-2">100</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-2">2024-01-01</td>
+                  <td class="px-4 py-2">18:00</td>
+                  <td class="px-4 py-2 flex items-center">
+                    <i class="fas fa-lightbulb mr-2"></i> Light
+                  </td>
+                  <td class="px-4 py-2">0.1</td>
+                  <td class="px-4 py-2">Kitchen</td>
+                  <td class="px-4 py-2">On</td>
+                  <td class="px-4 py-2">4</td>
+                  <td class="px-4 py-2">Cloudy</td>
+                  <td class="px-4 py-2">4</td>
+                  <td class="px-4 py-2">Dinner</td>
+                  <td class="px-4 py-2">Winter</td>
+                  <td class="px-4 py-2">D</td>
+                  <td class="px-4 py-2">2</td>
+                  <td class="px-4 py-2">60</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section with Background Blur -->
+    <section id="about" class="py-16 bg-transparent relative">
+      <!-- Background Blur -->
+
+      <!-- Content -->
+      <div class="relative container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row items-center justify-between">
+          <!-- Text Content -->
+          <div class="pl-16  lg:w-2/3 mb-10 lg:mb-0 text-white" data-aos="fade-right">
+            <h2 class="text-4xl font-bold mb-4">About Ai Assist</h2>
+            <p class="text-lg mb-6">
+              Ai Assist is an innovative AI-powered tool designed to enhance your productivity. Whether you need help
+              with automating tasks, answering questions, or providing recommendations, our AI is here to assist.
+            </p>
+            <p class="text-lg mb-6">
+              Our mission is to integrate AI into everyday tasks, making technology accessible and easy to use for
+              everyone. With advanced algorithms and a user-friendly interface, Ai Assist is your go-to assistant for
+              simplifying life.
+            </p>
+            <a href="#contact"
+              class="inline-block bg-cyan-500 text-white py-3 px-6 rounded-md font-semibold hover:bg-cyan-600 transition-all">Learn
+              More</a>
+          </div>
+
+          <!-- Image -->
+          <div class="lg:w-1/3" data-aos="fade-left">
+            <i class='bx bxs-zap' style="font-size: 20em;"></i>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-16 rounded-lg bg-gradient-to-br from-blue-400 to-violet-900 text-white">
+      <div class="container mx-auto px-16">
+        <h2 class="text-3xl font-bold text-center mb-8 text-cyan-300" data-aos="fade-up">
+          Developer Contact
+        </h2>
+
+        <div class="flex flex-col lg:flex-row items-center justify-between lg:space-x-12">
+
+          <!-- Contact Info -->
+          <div class="lg:w-1/2 w-full mb-8 lg:mb-0" data-aos="fade-right">
+            <h3 class="text-2xl font-semibold mb-4">Get in Touch</h3>
+            <p class="mb-4">
+              If you have any questions, suggestions, or issues, feel free to reach out. Our team is here to assist
+              you!
+            </p>
+            <p class="flex items-center mb-2">
+              <i class="fas fa-envelope mr-2 text-cyan-300"></i> zidanerizal17@gmail.com
+            </p>
+            <p class="flex items-center mb-2">
+              <i class="fas fa-phone mr-2 text-cyan-300"></i> +62 815-2947-4830
+            </p>
+            <p class="flex items-center">
+              <i class="fas fa-map-marker-alt mr-2 text-cyan-300"></i> Lamongan, District Lamongan, Lamongan Regency,
+              East Java
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="recommend" class="mb-16 flex pt-4">
+      <!-- Formulir Pertanyaan -->
+      <section class="card p-4 mx-2 w-1/3" id="question-form-section">
+        <form id="question-form" class="space-y-4">
+          <label for="question" class="block text-cyan-900 text-lg font-semibold flex items-center">
+            <i class="fas fa-question-circle mr-2"></i> Ask a question:
+          </label>
+          <input type="text" id="question" name="question" placeholder="Enter your question..." required
+            class="block w-full px-4 py-2 border bg-transparent border-indigo-200 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          <input type="submit" value="Submit"
+            class="block w-full bg-indigo-600 text-white font-semibold py-2 rounded-md hover:bg-indigo-700 cursor-pointer" />
+        </form>
+        <div class="response-section mt-4" id="response-section">
+          <!-- AI-generated responses will be added here -->
+        </div>
+      </section>
+
+      <hr class="my-8" />
+
+      <!-- Rekomendasi Penghematan Energi dengan Ikon -->
+      <section class="card p-4 mx-2 bg-base-100 w-2/3 shadow-xl" id="recommendation-section">
+        <h2 class="text-2xl font-semibold mb-4 flex items-center text-cyan-900">
+          <i class="fas fa-lightbulb mr-2"></i> Energy Saving
+          Recommendations
+        </h2>
+        <form id="recommend-form" class="space-y-4">
+          <label for="text" class="block text-cyan-900 text-lg font-semibold flex items-center">
+            <i class="fas fa-comment-dots mr-2"></i> Describe your
+            situation:
+          </label>
+          <input type="text" id="text" name="text" placeholder="Describe your situation..." required
+            class="block w-full px-4 py-2 bg-transparent border border-base-300 synthwave:bg-indigo-700 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          <input type="submit" value="Get Recommendations"
+            class="block w-full text-white bg-cyan-400 font-semibold py-2 rounded-md hover:bg-cyan-600 cursor-pointer" />
+        </form>
+        <div id="recommendations-list" class="mt-4">
+          <!-- Recommendations will be dynamically added here -->
+        </div>
+      </section>
+    </div>
+  </div>
   </div>
 
   <script src="/static/js/script.js"></script>
